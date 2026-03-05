@@ -15,18 +15,14 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("Temperatur: ");
-  Serial.print(bme.readTemperature());
-  Serial.println(" °C");
 
-  Serial.print("Luftfeuchtigkeit: ");
-  Serial.print(bme.readHumidity());
-  Serial.println(" %");
+  Serial.print("Temp. ");
+  Serial.print(bme.readTemperature(), 1);
+  Serial.print(" °C, Hum. ");
+  Serial.print(bme.readHumidity(), 0);
+  Serial.print("%, Druck. ");
+  Serial.print(bme.readPressure() / 100.0F, 0);
+  Serial.println("hPa");
 
-  Serial.print("Luftdruck: ");
-  Serial.print(bme.readPressure() / 100.0F);
-  Serial.println(" hPa");
-
-  Serial.println("---------------------");
   delay(2000);
 }
